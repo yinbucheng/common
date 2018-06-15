@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=cn.intellif.bucheng.common.configuration.LogPrintAutoConfig,\
+cn.intellif.bucheng.common.aop.PrintArgDetailAop,cn.intellif.bucheng.common.aop.TimeUseAop
