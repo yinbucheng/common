@@ -11,11 +11,9 @@ import org.aspectj.lang.reflect.MethodSignature;
 import java.lang.reflect.Method;
 
 @Aspect
-public class TimeUseAop {
+public class TimeUseAop{
 
     private Logger logger = Logger.getLogger(TimeUseAop.class);
-
-    public static boolean open = false;
 
 
     @Pointcut("@annotation(cn.intellif.bucheng.common.annotation.PrintMethodTime)")
@@ -24,9 +22,6 @@ public class TimeUseAop {
     @Around("testAop()")
     public Object printTime(ProceedingJoinPoint joinPoint){
         try {
-            if(!open){
-                return joinPoint.proceed();
-            }
             long startTime = System.currentTimeMillis();
             Object tagert = joinPoint.getTarget();
             Signature signature = joinPoint.getSignature();

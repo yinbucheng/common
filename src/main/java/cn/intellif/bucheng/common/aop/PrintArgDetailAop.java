@@ -23,22 +23,18 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Aspect
-public class PrintArgDetailAop {
+public class PrintArgDetailAop{
 
     private Logger logger = Logger.getLogger(PrintArgDetailAop.class);
 
-    private static Map<String,Object> cache = new ConcurrentHashMap<>();
+    private static Map<String,Object> cache = new ConcurrentHashMap<String,Object>();
 
-    public static boolean open = false;
 
     @Pointcut("@annotation(cn.intellif.bucheng.common.annotation.PrintArgsDetail)")
     private void testAop(){}
 
     @Before("testAop()")
     public void printArgDetail(JoinPoint joinPoint){
-        if(!open){
-            return;
-        }
         try {
             Object[] args = joinPoint.getArgs();
             Object target = joinPoint.getTarget();
